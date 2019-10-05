@@ -9,7 +9,8 @@ module.exports = {
 	getItems,
 	addItems,
 	create,
-	remove
+	remove,
+	getRecipes
 };
 
 async function getItems(username) {
@@ -59,14 +60,18 @@ async function remove(foodParam) {
 }
 
 async function getRecipes(foodParam) {
-	let recipeReq = new RecipeRequest();
+	console.log(RecipeRequest);
+	let recipeReq = RecipeRequest();
 
 	let cur = await Food.findOne({username: foodParam.username});
 	for (i of cur.items) {
 		recipeReq.addIngredient(i);
 	}
 
-
+	// recipeReq.makeRequest().then(() => {
+	// 	console.log(recipeReq.getRequestResponse());
+	// });
+	return await recipeReq.makeRequest();
 }
 
 function rm(a, b) {
