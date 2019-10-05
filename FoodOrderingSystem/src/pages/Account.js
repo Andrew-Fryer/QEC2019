@@ -9,7 +9,7 @@ import NewLogin from "../components/create-account"
 const ThirdPage = () => (
   <Layout>
     <SEO title="Page three" />
-    <NewLogin/>
+    <NewLogin/> {/*NewLogin call the react component that create a new login for the user*/}
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
