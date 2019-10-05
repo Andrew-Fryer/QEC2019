@@ -8,6 +8,29 @@ import Recipe from "../components/Recipe";
 import List from "../components/List";
 
 class SecondPage extends React.Component{
+
+	add(data) {
+		$.ajax({
+			url: 'http://10.217.205.104:2019/food/add',
+			type: 'post',
+			data: {username: 'user', items: data},
+			success: function() {
+				console.log('success');
+			}
+		});
+	}
+
+	get() {
+		$.ajax({
+			url: 'http://10.217.205.104:2019/food/request',
+			type: 'post',
+			data: {username: 'user'},
+			success: function(data) {
+				this.setState({data});
+			}
+		});
+	}
+
   render() {
     let missedI = [
       {
@@ -53,7 +76,7 @@ class SecondPage extends React.Component{
           "unitShort": ""
       }
     ]
-    
+
     let usedI = [
       {
           "aisle": "Produce",
@@ -82,10 +105,9 @@ class SecondPage extends React.Component{
     <Recipe title="Apple Or Peach Strudel" image="https://spoonacular.com/recipeImages/73420-312x231.jpg"
       missedIngredients={missedI} usedIngredients={usedI}/>
 
+    <List add={this.add} get={this.get} missedIngredients={this.state.data.missedIngredients} usedIngredients={this.state.data.usedIngredients} image={this.state.data.image} title={this.state.data.title}/>
 
-    <button>Request Recipe</button>
-    
-    <List/>
+		<button onClick={this.get}></button>
 
     <Link to="/">Go back to the homepage</Link>
   </Layout>
