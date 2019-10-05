@@ -14,7 +14,11 @@ const SecondPage = () => (
     <Input />
     <Input />
     <Input />
-    <button>Add Additional Ingridients</button>
+    <button id = "adding-ingredients">Add Additional Ingridients</button>
+
+
+
+
     <button>Request Recipe</button>
     
 
