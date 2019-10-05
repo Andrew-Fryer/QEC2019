@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Input from "../components/input"
 import Recipe from "../components/Recipe";
+import List from "../components/List";
 
 class SecondPage extends React.Component{
   render() {
@@ -84,6 +85,7 @@ class SecondPage extends React.Component{
 
     <button>Request Recipe</button>
     
+    <List/>
 
     <Link to="/">Go back to the homepage</Link>
   </Layout>
