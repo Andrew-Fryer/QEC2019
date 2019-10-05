@@ -1,4 +1,5 @@
 import React from 'react'
+import $ from "min-jquery";
 
 /*function SubForm (){
     $.ajax({
@@ -20,14 +21,14 @@ class NewLogin extends React.Component {
         super(props);
 
     }
-        
+
         render(){
             return (
                 <div style = {{
                     margin: `auto`,
                     width: `80%`,
                     padding: `5px`
-    
+
                   }}>
                     <p>Please Create Your Account Below: </p> {/*Here the user can create an account which will post the data to the database */}
                     <form action="http://10.217.205.104:2019/users/register" id = "form" method = "POST">
@@ -41,7 +42,7 @@ class NewLogin extends React.Component {
                         <br/>
                         <button onClick={clicking}>Submit</button>
                     </form>
-    
+
                 </div>
             )
         }

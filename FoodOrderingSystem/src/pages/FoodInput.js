@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import $ from "min-jquery";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,6 +9,13 @@ import Recipe from "../components/Recipe";
 import List from "../components/List";
 
 class SecondPage extends React.Component{
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: []
+		};
+	}
 
 	add(data) {
 		$.ajax({
