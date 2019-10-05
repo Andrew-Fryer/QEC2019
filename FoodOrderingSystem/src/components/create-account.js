@@ -29,7 +29,7 @@ class NewLogin extends React.Component {
                     padding: `5px`
     
                   }}>
-                    <p>Please Create Your Account Below: </p>
+                    <p>Please Create Your Account Below: </p> {/*Here the user can create an account which will post the data to the database */}
                     <form action="http://10.217.205.104:2019/users/register" id = "form" method = "POST">
                         <input name="firstName" placeholder="Given Name" type="text"/>
                         <br/>
