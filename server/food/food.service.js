@@ -10,11 +10,21 @@ module.exports = {
 	addItems,
 	create,
 	remove,
-	getRecipes
+	getRecipes,
+	clear
 };
 
-async function getItems(username) {
-    return await Food.find({username: username});
+async function clear(foodParam) {
+	let cur = await Food.findOne({username: foodParam.username});
+	if (cur) {
+		Object.assign(cur, {username: foodParam.username, items: []});
+		await cur.save();
+	}
+}
+
+async function getItems(foodParam) {
+  let cur = await Food.findOne({username: foodParam.username});
+	return cur.items;
 }
 
 async function addItems(foodParam) {

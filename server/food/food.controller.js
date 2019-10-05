@@ -6,13 +6,14 @@ const foodService = require('./food.service');
 router.post('/get', getItems);
 router.post('/add', addItems);
 router.post('/request', request);
+router.post('/clear', clear);
 
 module.exports = router;
 
 function getItems(req, res, next) {
-    foodService.getItems(req.params.username)
-        .then(items => items ? res.json(items) : res.sendStatus(404))
-        .catch(err => next(err));
+  foodService.getItems(req.body)
+      .then(items => items ? res.json(items) : res.sendStatus(404))
+      .catch(err => next(err));
 }
 
 function addItems(req, res, next) {
@@ -25,4 +26,10 @@ function request(req, res, next) {
 	foodService.getRecipes(req.body)
 		.then(recipes => recipes ? res.json(recipes) : res.sendStatus(404))
 		.catch(err => next(err));
+}
+
+function clear(req, res, next) {
+	foodService.clear(req.body)
+		.then(() => res.json({}))
+		.catch(err => next(err))
 }
