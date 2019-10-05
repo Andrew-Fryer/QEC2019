@@ -27,6 +27,8 @@ const IndexPage = () => (
       {/*<Image />*/}
     </div>
     <Link to="/FoodInput/">Go to page 2</Link>
+    <br/>
+    <Link to="/Account/">Create Account</Link>
   </Layout>
 )
 
