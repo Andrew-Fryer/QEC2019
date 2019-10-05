@@ -1,3 +1,7 @@
+/*
+A large part of this project was obtained from https://jasonwatmore.com/post/2018/06/14/nodejs-mongodb-simple-api-for-authentication-registration-and-user-management
+*/
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -14,6 +18,7 @@ app.use(jwt());
 
 // api routes
 app.use('/users', require('./users/users.controller'));
+app.use('/food', require('./food/food.controller'));
 
 // global error handler
 app.use(errorHandler);

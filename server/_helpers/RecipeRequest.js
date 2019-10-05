@@ -9,7 +9,6 @@ class RecipeRequest{
 
     addIngredient(ingredient) {
         this.ingredients.push(ingredient)
-        console.log(this.ingredients)
     }
 
     addExcluded(excluded) {
@@ -27,9 +26,9 @@ class RecipeRequest{
     //     this.diet.add(diet)
     // }
 
-    makeRequest() {
-        var XMLHttpRequest = require("xhr2").XMLHttpRequest;
-        const Http = new XMLHttpRequest();
+    async makeRequest() {
+        // var XMLHttpRequest = require("xhr2").XMLHttpRequest;
+        // const Http = new XMLHttpRequest();
         var url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=7a161cad2082480688ba9420e2b5f198";
 
         if (this.ingredients && this.ingredients.length) {
@@ -47,21 +46,29 @@ class RecipeRequest{
             }
             url = url.substring(0, url.length - 1);
         }
-        fetch(url).then(response => response.json())
-            .then(data => {this.requestResponse = data})
-            .then(e => {return this.getRequestResponse()})
-
+        // return fetch(url).then(response => response.json())
+        //     .then(data => {this.requestResponse = data;})
+        //     .then(e => {return this.getRequestResponse()})
+				let res = await fetch(url);
+				res = res.json();
+				return res;
     }
 }
 
-var request = new RecipeRequest()
-request.addIngredient("tortilla")
-request.addIngredient("cheese")
-request.addIngredient("green onion")
-request.addIngredient("pepper")
-request.addIngredient("chicken")
+// var request = new RecipeRequest()
+// request.addIngredient("tortilla")
+// request.addIngredient("cheese")
+// request.addIngredient("green onion")
+// request.addIngredient("pepper")
+// request.addIngredient("chicken")
 
 // request.addExcluded("avocado")
 
 
-console.log(request.getRequestResponse())
+// request.makeRequest().then(() => {
+// 	console.log(request.getRequestResponse());
+// });
+
+module.exports = () => {
+	return new RecipeRequest()
+};
