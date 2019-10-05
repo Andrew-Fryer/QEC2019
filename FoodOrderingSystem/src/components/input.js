@@ -6,15 +6,19 @@ class Input extends React.Component {
 
     }
 
-    render(){
-        return (
+    //render(){
+        /*(return (
             <div>
                 <form>
                     <input name = "Ingredient" placeholder="What's in your fridge?" type="text"/>
                 </form>
             </div>
-        )
-    }
+        )*/
+
+       // return(
+            
+       // )
+   // }
 }
 
 export default Input;
