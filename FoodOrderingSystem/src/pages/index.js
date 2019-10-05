@@ -9,7 +9,15 @@ import Login from "../components/login"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Login />
+    <div>
+      <h1>Hello There and Welcome to Our Website!</h1>
+      <div>
+        <p></p>
+      </div>
+      <Login />
+      <br/>
+      <br/>
+    </div>
 
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       {/*<Image />*/}

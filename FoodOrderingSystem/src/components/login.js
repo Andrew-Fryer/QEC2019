@@ -7,13 +7,17 @@ class Login extends React.Component {
     }
     render(){
         return (
-            <div>
-                <h1>Hello There and Welcome to Our Website!</h1>
+            <div style = {{
+                margin: `auto`,
+                width: `80%`,
+                padding: `5px`
+
+              }}>
                 <p>Please Login: </p>
                 <form>
                     <input name="username" placeholder="username" type="text"/>
                     <br/>
-                    <input name="password" type="password"/>
+                    <input name="password" placeholder="password" type="password"/>
                 </form>
             </div>
         )
