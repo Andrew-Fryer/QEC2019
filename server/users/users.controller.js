@@ -5,7 +5,7 @@ const userService = require('./user.service');
 // routes
 router.post('/authenticate', authenticate);
 router.post('/register', register);
-router.get('/', getAll);
+router.post('/', getAll);
 router.get('/current', getCurrent);
 router.get('/:id', getById);
 router.put('/:id', update);
@@ -26,9 +26,8 @@ function register(req, res, next) {
 }
 
 function getAll(req, res, next) {
-		console.log("hello");
     userService.getAll()
-        .then(users => {console.log(users);res.json(users);})
+        .then(users => res.json(users))
         .catch(err => next(err));
 }
 
