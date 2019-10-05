@@ -12,7 +12,12 @@ const IndexPage = () => (
     <div>
       <h1>Hello There and Welcome to Our Website!</h1>
       <div>
-        <p></p>
+        <p>
+          Do you have food in your fridge that you do not know how or what to cook with?! Well, this is the site for you! With this site,
+          you can input all of the ingredients you have at home and we will show you a whole bunch of recipes fit just for you. You can 
+          even tell us what you don't like and we'll be sure to take that into consideration with our recommendations. In order to use our
+          site, you will need to login below:
+        </p>
       </div>
       <Login />
       <br/>
